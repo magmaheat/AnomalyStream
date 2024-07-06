@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package frequency;
+
+option go_package = "/proto;frequency";
+
+service FrequencyService {
+  rpc GetFrequencies (FrequencyRequest) returns (stream FrequencyResponse) {}
+}
+
+message FrequencyRequest {
+}
+
+message FrequencyResponse {
+  string session_id = 1;
+  double frequency = 2;
+  int64 timestamp = 3;
+}
